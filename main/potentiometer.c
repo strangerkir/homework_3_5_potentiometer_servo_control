@@ -3,7 +3,6 @@
 #include <hal/adc_types.h>
 #include <stdint.h>
 
-static uint64_t last_read_at = 0;
 static adc_oneshot_unit_handle_t adc_handle;
 static adc_unit_t unit;
 static adc_channel_t channel;
