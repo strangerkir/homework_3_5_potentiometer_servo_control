@@ -3,10 +3,10 @@
 #include <hal/adc_types.h>
 #include <stdint.h>
 
-uint64_t last_read_at = 0;
-adc_oneshot_unit_handle_t adc_handle;
-adc_unit_t unit;
-adc_channel_t channel;
+static uint64_t last_read_at = 0;
+static adc_oneshot_unit_handle_t adc_handle;
+static adc_unit_t unit;
+static adc_channel_t channel;
 
 void setup_potentiometer() {
   ESP_ERROR_CHECK(adc_oneshot_io_to_channel(PIN_ADC, &unit, &channel));
