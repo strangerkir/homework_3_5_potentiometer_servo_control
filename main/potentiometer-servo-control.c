@@ -6,6 +6,7 @@
 #include "potentiometer.h"
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
+#include "servo.h"
 
 #define CHECK_INTERVAL (10 * 1000)
 
@@ -19,6 +20,8 @@ void app_main()
     uint64_t last_checked_at = 0;
 
     setup_potentiometer();
+    setup_servo();
+
     int raw = 0;
     int prev_raw = raw;
     uint64_t now = esp_timer_get_time();
@@ -35,6 +38,7 @@ void app_main()
             if(raw != prev_raw) {
                 angle = raw_to_angle(raw);
                 ESP_LOGI("potentiometer", "raw: %d, angle: %d", raw, angle);
+                servo_set_angle(angle);
             }
         }
         vTaskDelay(pdMS_TO_TICKS(10));
