@@ -6,6 +6,7 @@
 #define ATTENUATION ADC_ATTEN_DB_12
 #define BITWIDTH ADC_BITWIDTH_DEFAULT
 #define ADC_LEVELS 4096
+#define POTENTIOMETER_MAX_ANGLE 280
 
 void setup_potentiometer();
 
